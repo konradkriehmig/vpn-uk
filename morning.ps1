@@ -3,4 +3,4 @@ Set-Location bootstrap
 terraform apply -target="azurerm_role_assignment".tfstate_blob -auto-approve
 terraform apply -auto-approve
 Set-Location ../infra
-terraform inits
+terraform init
