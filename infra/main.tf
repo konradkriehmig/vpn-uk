@@ -11,6 +11,7 @@ terraform {
     storage_account_name = "savpnuk8689"
     container_name       = "tfstate"
     key                  = "vpn.tfstate"
+    use_azuread_auth     = true
   }
 }
 
