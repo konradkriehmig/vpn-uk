@@ -9,7 +9,6 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "8d9e4373-f610-460e-8c58-e1dc091ba829"
   storage_use_azuread = true
 }
 
@@ -19,14 +18,16 @@ resource "azurerm_resource_group" "state" {
 }
 
 resource "azurerm_storage_account" "state" {
-  name                     = "savpnuk8689"
-  resource_group_name      = azurerm_resource_group.state.name
-  location                 = azurerm_resource_group.state.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  min_tls_version          = "TLS1_2"
+  name                            = "savpnuk8689"
+  resource_group_name             = azurerm_resource_group.state.name
+  location                        = azurerm_resource_group.state.location
+  account_tier                    = "Standard"
+  account_replication_type        = "LRS"
+  min_tls_version                 = "TLS1_2"
   shared_access_key_enabled       = false
   default_to_oauth_authentication = true
+  allow_nested_items_to_be_public = false
+  public_network_access_enabled   = false
 }
 
 data "azurerm_client_config" "current" {}
